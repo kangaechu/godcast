@@ -1,7 +1,9 @@
 package godcast
 
-import "fmt"
-
-func Run() {
-	fmt.Println("hello")
+func Run(confFile string) {
+	pc, err := ReadConfig(confFile)
+	if err != nil {
+		panic(err)
+	}
+	pc.Print()
 }
