@@ -1,11 +1,13 @@
 package godcast
 
 import (
+	"errors"
 	"github.com/eduncan911/podcast"
 	"log"
 	"net/url"
 	"path"
 	"path/filepath"
+	"strings"
 	"time"
 )
 
@@ -27,6 +29,17 @@ func GeneratePodcastXML(pc *PodcastConfig, tags []*AudioTag) (string, error) {
 
 		item.PubDate = &t.PubDate
 
+		enclosure := podcast.Enclosure{}
+		enclosure.URL = item.Link
+		enclosure.Length = t.Size
+
+		et, err := fileNameToEnclosureType(t.Filename)
+		if err != nil {
+			return "", err
+		}
+		enclosure.Type = et
+		item.Enclosure = &enclosure
+
 		_, err = p.AddItem(item)
 		if err != nil {
 			log.Fatal("could not write item:", t, err)
@@ -46,4 +59,16 @@ func pathToUrl(soundFilePath string, basePath string, urlBase string) (string, e
 	}
 	baseUrl.Path = path.Join(baseUrl.Path, relativePath)
 	return baseUrl.String(), nil
+}
+
+func fileNameToEnclosureType(filename string) (podcast.EnclosureType, error) {
+	switch strings.ToUpper(filepath.Ext(filename)) {
+	case ".M4A":
+		return podcast.M4A, nil
+	case ".MP4":
+		return podcast.MP4, nil
+	case ".MP3":
+		return podcast.MP3, nil
+	}
+	return podcast.EPUB, errors.New("could not convert filename into EnclosureType")
 }
