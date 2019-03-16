@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
+	"log"
 	"os"
 )
 
@@ -19,8 +20,7 @@ func ReadConfig(confFile string) (pc *PodcastConfig, err error) {
 	file, err := os.Open(confFile)
 	defer file.Close()
 	if err != nil {
-		// ファイルがない場合は空のDownloadedProgramsを返す
-		return nil, nil
+		log.Fatal("config yaml file not found:", confFile)
 	}
 	readBytes, err := ioutil.ReadAll(file)
 	if err != nil {

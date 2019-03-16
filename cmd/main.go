@@ -1,7 +1,12 @@
 package main
 
-import "github.com/kangaechu/godcast/pkg/godcast"
+import (
+	"flag"
+	"github.com/kangaechu/godcast/pkg/godcast"
+)
 
 func main() {
-	godcast.Run("test/podcast.yaml")
+	confFile := flag.String("c", "podcast.yaml", "conf yaml file name")
+	flag.Parse()
+	godcast.Run(*confFile)
 }
