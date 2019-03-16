@@ -19,6 +19,7 @@ type AudioTag struct {
 }
 
 func GetTag(filename string) (*AudioTag, error) {
+	log.Println("Reading", filename)
 	file, err := os.Open(filename)
 	defer file.Close()
 	if err != nil {
@@ -29,8 +30,6 @@ func GetTag(filename string) (*AudioTag, error) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Print(m.Format())
-	log.Print(m.Title())
 	stat, err := os.Stat(filename)
 	if err != nil {
 		log.Fatal("error on read file stat", filename)
