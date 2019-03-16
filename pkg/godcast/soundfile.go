@@ -67,7 +67,9 @@ func GetTagsInDir(dirname string) ([]*AudioTag, error) {
 
 	sort.Sort(ByModDate{FileInfos{}})
 	for _, file := range files {
-		if strings.HasSuffix(file.Name(), "mp3") || strings.HasSuffix(file.Name(), "mp4") {
+		if strings.HasSuffix(file.Name(), "mp3") ||
+			strings.HasSuffix(file.Name(), "mp4") ||
+			strings.HasSuffix(file.Name(), "m4a") {
 			t, err := GetTag(filepath.Join(dirname, file.Name()))
 			if err != nil {
 				log.Fatal("error on ", file.Name())
