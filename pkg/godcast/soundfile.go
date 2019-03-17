@@ -39,33 +39,22 @@ func GetTag(filename string) (*AudioTag, error) {
 	return &audio, nil
 }
 
-type FileInfos []os.FileInfo
-type ByModDate struct{ FileInfos }
-
-func (fi ByModDate) Len() int {
-	return len(fi.FileInfos)
-}
-func (fi ByModDate) Swap(i, j int) {
-	fi.FileInfos[i], fi.FileInfos[j] = fi.FileInfos[j], fi.FileInfos[i]
-}
-func (fi ByModDate) Less(i, j int) bool {
-	return fi.FileInfos[j].ModTime().Unix() < fi.FileInfos[i].ModTime().Unix()
-}
-
 func GetTagsInDir(dirname string) ([]*AudioTag, error) {
 	dir, err := os.Open(dirname)
 	defer dir.Close()
 	if err != nil {
 		return nil, err
 	}
-	files, err := dir.Readdir(0)
+	fileInfos, err := dir.Readdir(0)
 	if err != nil {
 		return nil, err
 	}
 	var tags []*AudioTag
 
-	sort.Sort(ByModDate{FileInfos{}})
-	for _, file := range files {
+	sort.Slice(fileInfos, func(i, j int) bool {
+		return fileInfos[i].ModTime().Unix() < fileInfos[j].ModTime().Unix()
+	})
+	for _, file := range fileInfos {
 		if strings.HasSuffix(file.Name(), "mp3") ||
 			strings.HasSuffix(file.Name(), "mp4") ||
 			strings.HasSuffix(file.Name(), "m4a") {
