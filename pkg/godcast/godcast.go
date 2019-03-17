@@ -8,6 +8,7 @@ func Run(confFile string) {
 	if err != nil {
 		panic(err)
 	}
+	pc.Print()
 
 	//Podcastのファイルからタグを検索
 	tags, err := GetTagsInDir(pc.EpisodeDir)
