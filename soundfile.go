@@ -11,11 +11,12 @@ import (
 import "github.com/dhowden/tag"
 
 type AudioTag struct {
-	Filename string
-	Title    string
-	Artist   string
-	PubDate  time.Time
-	Size     int64
+	Filename    string
+	Title       string
+	Artist      string
+	Description string
+	PubDate     time.Time
+	Size        int64
 }
 
 func GetTag(filename string) (*AudioTag, error) {
@@ -34,8 +35,11 @@ func GetTag(filename string) (*AudioTag, error) {
 	if err != nil {
 		log.Fatal("error on read file stat", filename)
 	}
-
-	audio := AudioTag{filename, m.Title(), m.Artist(), stat.ModTime(), stat.Size()}
+	comment := m.Comment()
+	if m.Comment() == "" {
+		comment = "no description"
+	}
+	audio := AudioTag{filename, m.Title(), m.Artist(), comment, stat.ModTime(), stat.Size()}
 	return &audio, nil
 }
 

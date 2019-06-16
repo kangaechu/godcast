@@ -19,7 +19,7 @@ func GeneratePodcastXML(pc *PodcastConfig, tags []*AudioTag) (string, error) {
 	for _, t := range tags {
 		item := podcast.Item{}
 		item.Title = t.Title
-		item.Description = "no description"
+		item.Description = t.Description
 		link, err := pathToUrl(t.Filename, pc.EpisodeDir, pc.Link)
 		if err != nil {
 			log.Fatal("link create error", err, t)
