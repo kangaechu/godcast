@@ -2,7 +2,7 @@ package main
 
 import (
 	"flag"
-	"github.com/kangaechu/godcast/pkg/godcast"
+	"github.com/kangaechu/godcast"
 )
 
 func main() {
