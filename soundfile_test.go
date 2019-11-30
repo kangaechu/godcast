@@ -14,7 +14,7 @@ func TestGetTagMp3(t *testing.T) {
 	if tag.Title != "テストtitle" {
 		log.Fatal("Invalid mp3 title tag.")
 	}
-	if tag.Description != "" {
+	if tag.Description != "no description" {
 		log.Fatal("Invalid mp3 description tag.")
 	}
 }
