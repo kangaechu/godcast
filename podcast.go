@@ -23,7 +23,6 @@ func GeneratePodcastXML(pc *PodcastConfig, tags []*AudioTag) (string, error) {
 		link, err := pathToUrl(t.Filename, pc.EpisodeDir, pc.Link)
 		if err != nil {
 			log.Fatal("link create error", err, t)
-			continue
 		}
 		item.Link = link
 
@@ -42,7 +41,8 @@ func GeneratePodcastXML(pc *PodcastConfig, tags []*AudioTag) (string, error) {
 
 		_, err = p.AddItem(item)
 		if err != nil {
-			log.Fatal("could not write item:", t, err)
+			// エラーとなったファイルは出力しない
+			log.Print("could not write item:", t, err)
 		}
 	}
 	return p.String(), nil
