@@ -2,10 +2,11 @@ package godcast
 
 import (
 	"fmt"
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
 	"os"
+
+	"gopkg.in/yaml.v2"
 )
 
 type PodcastConfig struct {
@@ -14,7 +15,7 @@ type PodcastConfig struct {
 	Description     string `yaml:"description"`
 	EpisodeDir      string `yaml:"episodes_directory"`
 	PodcastFilePath string `yaml:"podcast_file_path"`
-	ImageUrl        string `yaml:"image_url, omitempty"`
+	ImageURL        string `yaml:"image_url, omitempty"`
 }
 
 func ReadConfig(confFile string) (pc *PodcastConfig, err error) {

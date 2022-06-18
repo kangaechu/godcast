@@ -7,8 +7,9 @@ import (
 	"sort"
 	"strings"
 	"time"
+
+	"github.com/dhowden/tag"
 )
-import "github.com/dhowden/tag"
 
 type AudioTag struct {
 	Filename    string
