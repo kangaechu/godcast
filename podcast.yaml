@@ -3,3 +3,4 @@ link: http://192.168.0.200/
 description: Description
 episodes_directory: /home/hoge/radio
 podcast_file_path: /home/hoge/radio
+image_url: http://example.com/1400x1400.png

@@ -15,6 +15,7 @@ func GeneratePodcastXML(pc *PodcastConfig, tags []*AudioTag) (string, error) {
 	now := time.Now()
 	p := podcast.New(pc.Title, pc.Link, pc.Description, &now, &now)
 	p.Language = "ja-jp"
+	p.AddImage(pc.ImageUrl)
 
 	for _, t := range tags {
 		item := podcast.Item{}
