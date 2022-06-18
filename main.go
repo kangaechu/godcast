@@ -3,8 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/kangaechu/godcast/godcast"
 	"os"
+
+	"github.com/kangaechu/godcast/godcast"
 )
 
 var version string
