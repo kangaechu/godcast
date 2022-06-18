@@ -2,13 +2,14 @@ package godcast
 
 import (
 	"errors"
-	"github.com/eduncan911/podcast"
 	"log"
 	"net/url"
 	"path"
 	"path/filepath"
 	"strings"
 	"time"
+
+	"github.com/eduncan911/podcast"
 )
 
 func GeneratePodcastXML(pc *PodcastConfig, tags []*AudioTag) (string, error) {
