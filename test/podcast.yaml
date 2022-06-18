@@ -3,3 +3,4 @@ link: http://192.168.0.200/
 description: Description
 episodes_directory: /Users/satoshi/go/src/github.com/kangaechu/godcast/test/
 podcast_file_path: /Users/satoshi/go/src/github.com/kangaechu/godcast/test/podcast.xml
+image_url: http://example.com/1400x1400.png

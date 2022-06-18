@@ -6,7 +6,7 @@ import (
 )
 
 func TestGetTagMp3(t *testing.T) {
-	filename := "./test/test.mp3"
+	filename := "../test/test.mp3"
 	tag, err := GetTag(filename)
 	if err != nil {
 		log.Fatal("Error on get mp3 tag.")
@@ -20,7 +20,7 @@ func TestGetTagMp3(t *testing.T) {
 }
 
 func TestGetTagMp4(t *testing.T) {
-	filename := "./test/test.mp4"
+	filename := "../test/test.mp4"
 	tag, err := GetTag(filename)
 	if err != nil {
 		log.Fatal("Error on get mp3 tag.")
@@ -31,7 +31,7 @@ func TestGetTagMp4(t *testing.T) {
 }
 
 func TestGetTagsInDir(t *testing.T) {
-	dirname := "./test/"
+	dirname := "../test/"
 	tags, err := GetTagsInDir(dirname)
 	if err != nil {
 		log.Fatal("Error on walking sound directory.", err)
