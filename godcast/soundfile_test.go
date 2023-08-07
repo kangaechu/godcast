@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestGetTagMp3(t *testing.T) {
+func TestGetTagMp3(_ *testing.T) {
 	filename := "../test/test.mp3"
 	tag, err := GetTag(filename)
 	if err != nil {
@@ -19,7 +19,7 @@ func TestGetTagMp3(t *testing.T) {
 	}
 }
 
-func TestGetTagMp4(t *testing.T) {
+func TestGetTagMp4(_ *testing.T) {
 	filename := "../test/test.mp4"
 	tag, err := GetTag(filename)
 	if err != nil {
@@ -30,7 +30,7 @@ func TestGetTagMp4(t *testing.T) {
 	}
 }
 
-func TestGetTagsInDir(t *testing.T) {
+func TestGetTagsInDir(_ *testing.T) {
 	dirname := "../test/"
 	tags, err := GetTagsInDir(dirname)
 	if err != nil {
