@@ -1,7 +1,7 @@
 github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/dhowden/tag v0.0.0-20220617232555-e66a190c9f5b h1:TG8R5ZZgd1Sj7iFWnkk5dNy94RG8fP8M4l24UYR8/HY=
-github.com/dhowden/tag v0.0.0-20220617232555-e66a190c9f5b/go.mod h1:Z3Lomva4pyMWYezjMAU5QWRh0p1VvO4199OHlFnyKkM=
+github.com/dhowden/tag v0.0.0-20240417053706-3d75831295e8 h1:OtSeLS5y0Uy01jaKK4mA/WVIYtpzVm63vLVAPzJXigg=
+github.com/dhowden/tag v0.0.0-20240417053706-3d75831295e8/go.mod h1:apkPC/CR3s48O2D7Y++n1XWEpgPNNCjXYga3PPbJe2E=
 github.com/eduncan911/podcast v1.4.2 h1:S+fsUlbR2ULFou2Mc52G/MZI8JVJHedbxLQnoA+MY/w=
 github.com/eduncan911/podcast v1.4.2/go.mod h1:mSxiK1z5KeNO0YFaQ3ElJlUZbbDV9dA7R9c1coeeXkc=
 github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
