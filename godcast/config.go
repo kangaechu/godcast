@@ -2,7 +2,7 @@ package godcast
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
 	"os"
 
@@ -24,7 +24,7 @@ func ReadConfig(confFile string) (pc *PodcastConfig, err error) {
 	if err != nil {
 		log.Fatal("config yaml file not found:", confFile)
 	}
-	readBytes, err := ioutil.ReadAll(file)
+	readBytes, err := io.ReadAll(file)
 	if err != nil {
 		return nil, err
 	}
