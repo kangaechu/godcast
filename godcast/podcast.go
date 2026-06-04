@@ -20,6 +20,24 @@ func GeneratePodcastXML(pc *PodcastConfig, tags []*AudioTag) (string, error) {
 		p.AddImage(pc.ImageURL)
 	}
 
+	// Apple Podcasts はフィード登録に itunes:category と itunes:explicit を必須とする。
+	// 設定が未指定の場合はデフォルト値を補完する。
+	category := pc.Category
+	if category == "" {
+		category = "Leisure"
+	}
+	p.AddCategory(category, nil)
+
+	explicit := pc.Explicit
+	if explicit == "" {
+		explicit = "false"
+	}
+	p.IExplicit = explicit
+
+	if pc.Author != "" {
+		p.IAuthor = pc.Author
+	}
+
 	for _, t := range tags {
 		item := podcast.Item{}
 		item.Title = t.Title

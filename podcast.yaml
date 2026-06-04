@@ -4,3 +4,6 @@ description: Description
 episodes_directory: /home/hoge/radio
 podcast_file_path: /home/hoge/radio
 image_url: http://example.com/1400x1400.png
+category: Leisure # itunes:category (未指定なら Leisure)
+explicit: "false" # itunes:explicit (true/false、未指定なら false)
+author: "" # itunes:author (任意)

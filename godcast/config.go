@@ -16,6 +16,9 @@ type PodcastConfig struct {
 	EpisodeDir      string `yaml:"episodes_directory"`
 	PodcastFilePath string `yaml:"podcast_file_path"`
 	ImageURL        string `yaml:"image_url,omitempty"`
+	Category        string `yaml:"category,omitempty"`
+	Explicit        string `yaml:"explicit,omitempty"`
+	Author          string `yaml:"author,omitempty"`
 }
 
 func ReadConfig(confFile string) (pc *PodcastConfig, err error) {
